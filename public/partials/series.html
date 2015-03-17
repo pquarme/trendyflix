@@ -1,0 +1,66 @@
+<div class="item pos-rlt series" >
+	<div class=" bottom gd bg-info wrapper-md row" >
+		<div class="col-sm-6 pull-left hidden-xs hidden-sm ">
+			<span class="pull-right" ng-show="series.poster"> <img class="series-img"  ng-cloak ng-src="https://i.ytimg.com/vi/{{series.poster}}/0.jpg" width="50%">
+			</span>
+		</div>
+		<div class="series-center col-sm-6">
+			<div class="series-info  hidden-xs hidden-sm"></div>
+			<span class="h1 font-thin title-wrap pad-top">{{series.name}}</span></br> 
+			<i class="icon-film "></i><span class="h4 font-thin wrapper-xs">Seasons - {{series.seasons.length}}</span> 
+			<i class="icon-compass"></i>
+			<span class="h4 font-thin wrapper-xs" ng-repeat="genre in series.genre">{{genre.genre_id | checkGenre}}</span>
+			<span class="hidden-md hidden-lg"></br></span>
+			<span class="wrapper-xs no-wrap star" ng-bind-html="series.rating | starRating"> 
+			</span> 
+			<span class="social">
+				<p ng-repeat="social in series.social">
+					<a ng-if="social.website" ng-href="{{social.website}}" target="_blank" class="btn btn-sm btn-rounded btn-icon btn-default"><i class="fa fa-home"></i></a> 
+					<a ng-if="social.twitter" ng-href="{{social.twitter}}" target="_blank" class="btn btn-sm btn-icon btn-rounded btn-default"><i class="fa fa-twitr"></i></a> 
+					<a ng-if="social.facebook" ng-href="{{social.facebook}}" target="_blank" class="btn btn-sm btn-icon btn-rounded btn-default"><i class="fa fa-fbook"></i></a> 
+					<a ng-if="social.instagram" ng-href="{{social.instagram}}" target="_blank" class="btn  btn-sm btn-icon btn-rounded btn-default"><i class="fa fa-instgrm"></i></a>
+				</p> 
+			</span>
+		</div>
+	</div>
+	<img class="img-header " src="/assets/images/seriesbanner.jpg" alt="...">
+</div>
+
+<section class="series-content padder-md w-f-md ">
+	<div class="row row-sm">
+		<div class="col-lg-8 pad-top ">
+			<div class="">
+				<div class=" ">
+					<h3 class="">Description</h3>
+					<p>{{series.description}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<h3 class="">Seasons</h3>
+	<section>
+		<div class="row row-sm">
+			<div class="col-xs-12 col-sm-4 col-md-2 pad-bottom" ng-repeat="season in series.seasons">
+				<div class="item">
+					<div class="pos-rlt">
+						<div>
+							<a href="/watch/{{series.name | removeSpaces}}/?s={{season.season_num}}">
+								<div class="item-overlay opacity r r-2x bg-black">
+									<div class="bottom text-center m-b-md ">
+										<i class="pad-btm-pcnt fa fa-play-circle i-3x "></i>
+									</div>
+								</div>
+							</a>
+						</div>
+						<a href="/watch/{{series.name | removeSpaces}}/?s={{season.season_num}}"><img ng-src="https://i.ytimg.com/vi/{{season.poster}}/0.jpg" alt="" class="r r-2x img-full"></a>
+					</div>
+					<div class="padder-v ">
+						<a href="/watch/{{series.name | removeSpaces}}/?s={{season.season_num}}" class="text-ellipsis ">Season {{season.season_num}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</section>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en" class="app" ng-app="projectEcho">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>projectEcho</title>
+	<link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/iconcomedy.png")">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<!-- link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
+	<!-- PlugIn css -->
+	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/plugin/font-awesome.min.css")">
+	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/plugin/simple-line-icons.css")">
+	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/plugin/animate.css")">	
+	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/plugin/vbox.css")">
+	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/plugin/loading-bar.css")">
+	<!-- Google Font -->
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="@routes.Assets.at("stylesheets/app.css")">
+</head>
+<body >
+  <section class="vbox" ng-controller="navController">
+    <header class="bg-white header header-md navbar navbar-fixed-top-xs">
+      <div class="navbar-header aside bg-white-only ">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open" data-target="#nav,html">
+          <i class="icon-list"></i>
+        </a>
+        <a href="/discover" class="navbar-brand text-lt">
+          <img src="@routes.Assets.at("images/logo.png")" alt="." class="">
+          <span class="hidden-nav-xs m-l-sm"><span>trendy</span>flix
+        </a>
+      </div>     
+        <ul class="nav navbar-nav hidden-xs">
+        <li>
+          <a  href="" data-toggle="class:nav-xs,nav-xs" class="text-muted" toggle-directive >
+            <i class="fa fa-indent text"></i>
+            <i class="fa fa-dedent text-active"></i>
+          </a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button type="submit" ng-click="search()" class="btn btn-sm btn-icon rounded"><i class="fa fa-search"></i></button>
+            </span>
+            <input type="text" ng-model="searchQuery" ngEnter="search()" class="form-control input-sm no-border rounded" placeholder="Search for a trendyflix...">
+          </div>
+        </div>
+      </form>
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-aside dk  aside hidden-print" id="nav">          
+          <section class="vbox">
+            <section class="w-f-md scrollable">
+              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+               <!-- nav -->                 
+                <nav class="nav-primary hidden-xs">
+                  <ul class="nav clearfix">
+                    <li>
+                      <a href="/discover" ng-class="{activeLink: navClass('/discover')}" data-toggle="class:nav-off-screen,open">
+                        <i class="icon-globe icon text-nav"></i>
+                        <span class="font-bold">DISCOVER</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/genre" ng-class="{activeLink: navClass('/genre')}" data-toggle="class:nav-off-screen,open">
+                         <i class="icon-compass icon text-nav"></i>
+                        <span class="font-bold">GENRE</span>
+                      </a>
+                    </li>
+                    <li class="m-b hidden-nav-xs"></li>
+                  </ul>                 
+                </nav>
+                <!-- / nav -->
+              </div>
+            </section>
+          </section>
+        </aside>
+        <!-- /.aside -->
+        <section id="content">
+          <section class="hbox stretch">
+            <section>
+              <section class="vbox">                  
+                <section class="scrollable" id="bjax-target" >
+                     
+                  <div ng-view>
+                  
+                  </div>
+                  <footer class="footer bg-footer ">                   
+                  <div class="row ">
+                  	<div class="col-sm-3 col-lg-2">
+                  		<ul class="pad">
+                  			<li><h3>Submit a webseries</h3></li>
+                  			<li>Email us at trendyflix@@gmail.com</li>
+                  		</ul> 
+                  	</div>                  	                  	
+                  	<div class="col-sm-3 col-lg-2">
+                  		<ul class="pad">
+                  			<li><h3>Social</h3></li>
+                  			<li><a href="http://www.facebook.com/trendyflix" target="_blank">Facebook</a></li>
+                  			<li><a href="https://twitter.com/trendyflix" target="_blank">Twitter</a></li>
+                  			<li><a href="http://instagram.com/trendyflix" target="_blank">Instagram</a></li>
+                  		</ul>  
+                  	</div> 
+                  	<div class="col-sm-3 col-lg-2">
+                  		<ul class="pad">
+                  			<li><h3>About Us</h3></li>
+                  			<li><a href="">About TrendyFlix</a></li>
+                  			<li><a href="">Press</a></li>
+                  		</ul> 
+                  	</div>  
+                  </div>
+                   <div class="row podr">
+                  	<p class="center pad">© Copyright 2014 - TrendyFlix, Inc. All Rights Reserved.</p>   
+                  	 </div>         
+         		  </footer> 
+                        </section>                 
+                </section>
+              </section>
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+        </section>
+          <section class="aside hidden">
+          </section>
+      </section>
+    </section> 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//oss.maxcdn.com/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Angular plugin imports -->
+    <script src="//oss.maxcdn.com/angularjs/1.2.20/angular.min.js"></script>
+    <script src="//oss.maxcdn.com/angularjs/1.2.20/angular-route.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.7/angular-sanitize.min.js"></script>
+    <script src="@routes.Assets.at("javascripts/plugin/loading-bar.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/plugin/ng-infinite-scroll.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/plugin/angular-youtube-embed.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/plugin/angular-socialshare.min.js")" type="text/javascript"></script>
+    <!-- Angular Javascripts -->
+    <script src="@routes.Assets.at("javascripts/routeController.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/filters.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/directives.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/discoverController.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/seriesController.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/watchController.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/genreController.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/searchController.js")" type="text/javascript"></script>
+    <!-- PlayRoutes Javascripts -->
+    <script type="text/javascript" src="@routes.Application.apiRoutes"></script>
+</body>
+</html>

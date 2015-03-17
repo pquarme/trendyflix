@@ -1,0 +1,96 @@
+<section class="play">
+	<section class="hbox stretch bg-black dker vid-pad">
+		<!-- vid content-->
+		<section class="col-lg-7 play no-padder">
+			    <youtube-video video-id="activeEpisodeUrl" player-vars="plyrVars"></youtube-video>
+		</section>
+		<!-- / vid content -->
+		<section class="row side-bg ">
+			<section class="col-sm-8 no-padder">
+				<section class="play no-padder ">
+					<section class="padder scrollable hover desc-height">
+						<div class="desc">
+							<h3>{{series.name}}</h3>
+							<em class="text-info">Now Playing - Season {{activeEpisode.season_num}} - Episode {{activeEpisode.episode_num}}</em>
+							<p>{{activeEpisode.description}}</p>
+							<p id="">
+								<button socialshare socialshare-url='{{socialshareUrl}}' socialshare-provider="twitter" socialshare-text="{{socialshareText}}" socialshare-via="trendyflx" socialshare-hashtags="webseries, trendyflix" class="btn btn-sm btn-info">
+								<i class="fa fa-fw fa-twitr"></i>Tweet
+								</button>	
+								
+								<button socialshare socialshare-url="{{activeUrl}}"  socialshare-provider="facebook" class="btn btn-sm btn-primary">
+								<i class="fa fa-fw fa-fbook"></i>Share
+								</button>	
+								
+								<button socialshare socialshare-url="{{activeUrl}}"  socialshare-provider="google+" class="btn btn-sm btn-danger">
+								<i class="fa fa-fw fa-gplus"></i>Share
+								</button>	
+								
+							</p>
+						</div>
+
+						<section class="pad-top">
+							<div class=" m-r ">
+								<button data-toggle="dropdown" class="btn btn-sm btn-default dropdown-toggle">
+									<span class="dropdown-label">Season</span> <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu dropdown-select">
+									<li ng-repeat="seasons in series.seasons"ng-class="{active : seasons.season_num == activeSeason.season_num}"><input type="radio" name="d-s-r" checked=""><a href="" ng-click="changeSeason(seasons.season_num)">{{seasons.season_num}}</a></li>
+								</ul>
+								 <span class="btn btn-sm btn-default hidden-xs" data-toggle="button" ng-click="setAutoPlay()"> <span class="text">Autoplay</span> <span
+										class="text-active text-danger" >Autoplay</span>
+									</span> 
+									
+								</div>
+							<ul class="pad-top-min list-group list-group-lg no-bg auto m-b-none m-t-n-xxs" >
+								<li class="list-group-item clearfix" ng-repeat="episode in activeSeason.episodes" ng-class="{active : checkActiveVideo(episode.url)}"><a href="" ng-click="playVideo(episode)" class="pull-left thumb-sm m-r"> <img
+										ng-src="https://i.ytimg.com/vi/{{episode.url}}/1.jpg" alt="...">
+								</a> <a class="clear" href="" ng-click="playVideo(episode)"> <span class="clear block text-ellipsis">Episode {{episode.episode_num}} - {{episode.episode_name}}</span> <small
+										class="text-muted text-ellipsis">{{episode.description}}</small>
+								</a></li>												
+							</ul>
+						</section>
+					</section>
+				</section>
+			</section>
+			<section class="col-sm-4 no-padder hidden-xs">
+				<section class="play no-padder">
+					<section class="scrollable hover desc-height">
+						<h3 class="desc padder">Featured Series</h3>
+						<section class="no-padder ">
+							<section class="no-padder scrollable hover">
+								<div class="m-t-n-xxs">
+									<div class="item pos-rlt">
+										<a href="#" class="item-overlay active drk-opacity wrapper-md font-xs "> <span
+											class="block h3 font-bold text-warning text-u-c">The Unwritten Rules</span>
+										</a> <a href="#"> <img class="img-full" src="https://i.ytimg.com/vi/1Uqn-3PGEc4/0.jpg" alt="...">
+										</a>
+									</div>
+									<div class="item pos-rlt">
+										<a href="#" class="item-overlay active drk-opacity wrapper-md font-xs "> <span
+											class="block h3 font-bold text-warning text-u-c">Roomie Lover Friends</span>
+										</a> <a href="#"> <img class="img-full" src="https://i.ytimg.com/vi/1Uqn-3PGEc4/0.jpg" alt="...">
+										</a>
+									</div>
+									<div class="item pos-rlt">
+										<a href="#" class="item-overlay active drk-opacity wrapper-md font-xs "> <span
+											class="block h3 font-bold text-warning text-u-c">Share</span>
+										</a> <a href="#"> <img class="img-full" src="https://i.ytimg.com/vi/1Uqn-3PGEc4/0.jpg" alt="...">
+										</a>
+									</div>
+									<div class="item pos-rlt">
+										<a href="#" class="item-overlay active drk-opacity wrapper-md font-xs "> <span
+											class="block h3 font-bold text-warning text-u-c">Share</span>
+										</a> <a href="#"> <img class="img-full" src="https://i.ytimg.com/vi/1Uqn-3PGEc4/0.jpg" alt="...">
+										</a>
+									</div>
+								</div>
+							</section>
+						</section>
+						</div>
+					</section>
+				</section>
+			</section>
+		</section>
+	</section>
+</section>

@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index(any = "index")
+GET     /api/discover               controllers.DiscoverAction.getDiscover(pageNum: Integer)
+GET     /api/series                 controllers.SeriesAction.getSeries(query: String)
+GET     /api/episodes               controllers.EpisodesAction.getEpisodes(query: String)
+GET     /api/genre                  controllers.GenreAction.getGenre(genre: Integer, pageNum: Integer)
+GET     /api/search                  controllers.SearchAction.getSearch(query: String, pageNum: Integer)
+
+#Play routes serving JSON files to AngularJS
+GET     /apiRoutes                    controllers.Application.apiRoutes
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+#Re-routes any link to index
+GET 	/*any				        controllers.Application.index(any)
